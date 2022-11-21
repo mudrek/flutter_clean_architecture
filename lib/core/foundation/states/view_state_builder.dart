@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_clean_next/core/foundation/states/state.dart';
+
+import 'state.dart';
 
 class ViewStateBuilder<T> extends StatefulWidget {
   final Widget Function(BuildContext context, ViewState<T> state) builder;
