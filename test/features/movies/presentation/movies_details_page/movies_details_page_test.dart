@@ -28,11 +28,38 @@ void main() {
       final titleFinder = find.byKey(const Key(keyMoviesTitle));
       final ratingFinder = find.byKey(const Key(keyMoviesRating));
       final overviewFinder = find.byKey(const Key(keyMoviesOverview));
+      final textOverviewFinder = find.byKey(const Key(keyTextOverview));
 
       expect(titleFinder, findsOneWidget);
       expect(ratingFinder, findsOneWidget);
       expect(overviewFinder, findsOneWidget);
       expect(movieCardWidget, findsOneWidget);
+      expect(textOverviewFinder, findsNothing);
+    });
+  });
+
+  testWidgets('MovieDetailsPage with empty overview', (tester) async {
+    movie = MovieSample.create(overview: '');
+
+    testWidget = MaterialApp(
+      home: MovieDetailsPage(
+        movie: movie,
+      ),
+    );
+
+    await mockNetworkImagesFor(() async {
+      await tester.pumpWidget(testWidget);
+      final movieCardWidget = find.byKey(const Key(keyMoviesDetails));
+      final titleFinder = find.byKey(const Key(keyMoviesTitle));
+      final ratingFinder = find.byKey(const Key(keyMoviesRating));
+      final overviewFinder = find.byKey(const Key(keyMoviesOverview));
+      final textOverviewFinder = find.byKey(const Key(keyTextOverview));
+
+      expect(titleFinder, findsOneWidget);
+      expect(ratingFinder, findsOneWidget);
+      expect(overviewFinder, findsNothing);
+      expect(movieCardWidget, findsOneWidget);
+      expect(textOverviewFinder, findsOneWidget);
     });
   });
 }

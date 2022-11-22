@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../core/constants/keys.dart';
 import '../../../domain/entities/movie.dart';
 import '../../movies_details_page/movies_details_page.dart';
 
@@ -25,7 +26,7 @@ class MovieTileWidget extends StatelessWidget {
         ),
       ),
       onTap: () => onTap(context),
-      key: const Key('movieTile'),
+      key: const Key(keyMoviesListTile),
     );
   }
 

@@ -36,7 +36,10 @@ class MovieCardDetailsWidget extends StatelessWidget {
               height: 10.0,
             ),
             movie.overview.isEmpty
-                ? Text(I18n.strings.textOverview)
+                ? Text(
+                    I18n.strings.textOverview,
+                    key: const Key(keys.keyTextOverview),
+                  )
                 : Text(
                     movie.overview,
                     textAlign: TextAlign.justify,
