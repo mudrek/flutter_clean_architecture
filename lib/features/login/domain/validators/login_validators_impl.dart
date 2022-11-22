@@ -1,17 +1,19 @@
 import 'package:form_builder_validators/form_builder_validators.dart';
 
+import '../../../../core/i18n/i18n.dart';
 import '../../presentation/login_page/validators/login_validators_interface.dart';
 
 class LoginValidatorsImpl implements LoginValidatorsInterface {
   @override
   String? Function(String? p1)? passwordValidator() {
-    // TODO i18n
     return FormBuilderValidators.compose(
       [
-        FormBuilderValidators.required(errorText: 'A senha é obrigatório'),
+        FormBuilderValidators.required(
+          errorText: I18n.strings.validatorRequiredPassword,
+        ),
         FormBuilderValidators.minLength(
           3,
-          errorText: 'A senha deve ter no mínimo 3 caracteres',
+          errorText: I18n.strings.validatorMinLengthPassword,
         ),
       ],
     );
@@ -19,13 +21,14 @@ class LoginValidatorsImpl implements LoginValidatorsInterface {
 
   @override
   String? Function(String? p1)? usernameValidator() {
-    // TODO i18n
     return FormBuilderValidators.compose(
       [
-        FormBuilderValidators.required(errorText: 'O login é obrigatório'),
+        FormBuilderValidators.required(
+          errorText: I18n.strings.validatorRequiredUsername,
+        ),
         FormBuilderValidators.minLength(
           3,
-          errorText: 'O login deve ter no mínimo 3 caracteres',
+          errorText: I18n.strings.validatorMinLengthUsername,
         ),
       ],
     );

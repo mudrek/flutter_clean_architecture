@@ -14,24 +14,14 @@ class ButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const backgroundColor1 = Colors.orange;
-    const backgroundColor2 = Colors.red;
     const textColor = Colors.white;
 
-    return GestureDetector(
-      onTap: onPressed,
+    return ElevatedButton(
+      onPressed: showProgress ? null : onPressed,
       child: Container(
         padding: const EdgeInsets.all(16),
         width: 200,
         height: 54,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(22),
-          gradient: const LinearGradient(
-            colors: [backgroundColor1, backgroundColor2],
-            begin: FractionalOffset.topCenter,
-            end: FractionalOffset.bottomCenter,
-          ),
-        ),
         child: showProgress
             ? const Center(
                 child: SizedBox(

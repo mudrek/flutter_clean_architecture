@@ -3,11 +3,12 @@ import 'package:flutter/material.dart';
 import '../../../../core/foundation/form/base_form.dart';
 import '../../../../core/foundation/injector/get.dart';
 import '../../../../core/foundation/states/view_state_builder_dialog.dart';
-import '../../../movies/presentation/movies_page/movies_page.dart';
+import '../../../../core/i18n/i18n.dart';
 import '../../domain/entities/login_request.dart';
 import 'validators/login_validators_interface.dart';
 import 'viewmodel/login_view_model.dart';
 import 'widgets/button_widget.dart';
+import 'widgets/login_alert_widget.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -53,7 +54,9 @@ class _LoginPageState extends State<LoginPage> with BaseForm {
               TextFormField(
                 key: const Key('textfield-login'),
                 controller: _loginController,
-                decoration: const InputDecoration(label: Text('Login')),
+                decoration: InputDecoration(
+                  label: Text(I18n.strings.textUsernameFormFieldTitle),
+                ),
                 validator: _formValidators.usernameValidator(),
               ),
               const SizedBox(
@@ -63,7 +66,9 @@ class _LoginPageState extends State<LoginPage> with BaseForm {
                 key: const Key('textfield-password'),
                 controller: _passwordController,
                 obscureText: true,
-                decoration: const InputDecoration(label: Text('Password')),
+                decoration: InputDecoration(
+                  label: Text(I18n.strings.textPasswordFormFieldTitle),
+                ),
                 validator: _formValidators.passwordValidator(),
               ),
               const SizedBox(
@@ -75,31 +80,10 @@ class _LoginPageState extends State<LoginPage> with BaseForm {
                   final value = state.value;
 
                   if (value != null) {
-                    //showDialog
                     WidgetsBinding.instance.addPostFrameCallback((_) {
                       showDialog(
                         context: context,
-                        builder: (context) => AlertDialog(
-                          title: const Text('Login efetuado com sucesso!'),
-                          content: SizedBox(
-                            height: 130,
-                            child: Center(
-                              child: Column(
-                                children: [
-                                  Text('Nome: ${value.name}'),
-                                  Text('Email: ${value.email}'),
-                                  const SizedBox(
-                                    height: 16,
-                                  ),
-                                  ButtonWidget(
-                                    text: 'Ir para movies',
-                                    onPressed: _onClickPushMovies,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
+                        builder: (context) => LoginAlertWidget(userInfo: value),
                       );
                     });
                   }
@@ -107,19 +91,21 @@ class _LoginPageState extends State<LoginPage> with BaseForm {
                   final isLoading = state.loading;
                   return ButtonWidget(
                     key: const Key('button-login'),
-                    text: 'Login',
+                    text: I18n.strings.textButtonLogin,
                     onPressed: _onClickLogin,
                     showProgress: isLoading,
                   );
                 },
                 onError: (failure) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text(
-                        failure?.message ?? 'Ocorreu um erro inesperado',
+                  if (failure != null) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(
+                          failure.message,
+                        ),
                       ),
-                    ),
-                  );
+                    );
+                  }
                 },
               )
             ],
@@ -140,16 +126,5 @@ class _LoginPageState extends State<LoginPage> with BaseForm {
     if (isFormValid) {
       await viewModel.doLogin(request);
     }
-  }
-
-  void _onClickPushMovies() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) {
-          return const MoviesPage();
-        },
-      ),
-    );
   }
 }
