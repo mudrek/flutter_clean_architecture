@@ -8,3 +8,4 @@ const keyMoviesDetails = 'keyMoviesDetails';
 const keyMoviesTitle = 'keyMoviesTitle';
 const keyMoviesRating = 'keyMoviesRating';
 const keyMoviesOverview = 'keyMoviesOverview';
+const keyTextOverview = 'keyTextOverview';
