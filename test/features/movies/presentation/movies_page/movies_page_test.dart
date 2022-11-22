@@ -45,7 +45,7 @@ void main() {
   }
 
   testWidgets(
-    'Deve renderizar o MoviesPage corretamente',
+    'should render MoviesPage',
     (tester) async {
       await mockStates(tester);
 
@@ -56,7 +56,7 @@ void main() {
   );
 
   testWidgets(
-    'Deve renderizar o AppBar da MoviesPage corretamente',
+    'Should render MoviesPage AppBar',
     (tester) async {
       await mockNetworkImagesFor(() async {
         await mockStates(tester);
@@ -71,9 +71,9 @@ void main() {
   );
 
   testWidgets(
-    ''' Quando o usecase for sucedido:
-    1) Inicia a tela mostrando um CircularProgress Indicator.
-    2) Mostra a lista de filmes
+    ''' When usecase is successfull:
+    1) Show CircularProgress Indicator.
+    2) Show movies list
     ''',
     (tester) async {
       when(moviesViewModel.fetch()).thenAnswer((_) async {
@@ -105,8 +105,8 @@ void main() {
   );
 
   testWidgets('''
-    Quando o viewModel lançar uma Failure:
-    1) Mostra a mensagem de erro na tela.
+    When viewModel throw a Failure:
+    1) Show text error.
     ''', (tester) async {
     //Arrange
     when(moviesViewModel.fetch()).thenAnswer((_) async {
@@ -126,8 +126,7 @@ void main() {
     });
   });
 
-  testWidgets(
-      'deve efetuar um push, para a tela de detalhes do filme, ao clicar em um filme',
+  testWidgets('Should make a push to detail page when click in movie',
       (tester) async {
     when(moviesViewModel.moviesState).thenReturn(moviesState);
     when(moviesViewModel.fetch()).thenAnswer((_) async {
@@ -146,7 +145,7 @@ void main() {
 
       verify(moviesViewModel.fetch()).called(1);
 
-      final listTile = find.byKey(const Key('movieTile'));
+      final listTile = find.byKey(const Key(keyMoviesListTile));
       expect(listTile, findsOneWidget);
 
       await tester.tap(listTile);

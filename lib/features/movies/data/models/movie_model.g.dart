@@ -13,12 +13,3 @@ MovieModel _$MovieModelFromJson(Map<String, dynamic> json) => MovieModel(
       averageRating: (json['vote_average'] as num).toDouble(),
       overview: json['overview'] as String,
     );
-
-Map<String, dynamic> _$MovieModelToJson(MovieModel instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'title': instance.title,
-      'poster_path': instance.posterImageUrl,
-      'vote_average': instance.averageRating,
-      'overview': instance.overview,
-    };

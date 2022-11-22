@@ -1,6 +1,7 @@
 // Movies
 const keyMoviesListAppBar = 'keyMoviesListAppBar';
 const keyMoviesList = 'keyMoviesList';
+const keyMoviesListTile = 'keyMoviesListTile';
 const keyMoviesCicularProgressIndicator = 'keyMoviesCicularProgressIndicator';
 const keyMoviesErrorText = 'keyMoviesErrorText';
 const keyMoviesDetails = 'keyMoviesDetails';

@@ -3,7 +3,9 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'movie_model.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(
+  createToJson: false,
+)
 class MovieModel extends Equatable {
   final int id;
   final String title;
