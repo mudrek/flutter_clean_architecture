@@ -25,6 +25,7 @@ class MovieTileWidget extends StatelessWidget {
         ),
       ),
       onTap: () => onTap(context),
+      key: const Key('movieTile'),
     );
   }
 

@@ -12,6 +12,7 @@ import 'package:dio/src/dio_mixin.dart' as _i7;
 import 'package:dio/src/options.dart' as _i4;
 import 'package:dio/src/response.dart' as _i8;
 import 'package:dio/src/transformer.dart' as _i6;
+import 'package:flutter/src/widgets/navigator.dart' as _i20;
 import 'package:flutter_clean_next/core/data/handlers/clean_next_exception_handler.dart'
     as _i16;
 import 'package:flutter_clean_next/core/foundation/data/failure.dart' as _i3;
@@ -965,4 +966,98 @@ class MockMoviesViewModel extends _i1.Mock implements _i19.MoviesViewModel {
         returnValue: _i12.Future<void>.value(),
         returnValueForMissingStub: _i12.Future<void>.value(),
       ) as _i12.Future<void>);
+}
+
+/// A class which mocks [NavigatorObserver].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockNavigatorObserver extends _i1.Mock implements _i20.NavigatorObserver {
+  MockNavigatorObserver() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  void didPush(
+    _i20.Route<dynamic>? route,
+    _i20.Route<dynamic>? previousRoute,
+  ) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #didPush,
+          [
+            route,
+            previousRoute,
+          ],
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  void didPop(
+    _i20.Route<dynamic>? route,
+    _i20.Route<dynamic>? previousRoute,
+  ) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #didPop,
+          [
+            route,
+            previousRoute,
+          ],
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  void didRemove(
+    _i20.Route<dynamic>? route,
+    _i20.Route<dynamic>? previousRoute,
+  ) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #didRemove,
+          [
+            route,
+            previousRoute,
+          ],
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  void didReplace({
+    _i20.Route<dynamic>? newRoute,
+    _i20.Route<dynamic>? oldRoute,
+  }) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #didReplace,
+          [],
+          {
+            #newRoute: newRoute,
+            #oldRoute: oldRoute,
+          },
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  void didStartUserGesture(
+    _i20.Route<dynamic>? route,
+    _i20.Route<dynamic>? previousRoute,
+  ) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #didStartUserGesture,
+          [
+            route,
+            previousRoute,
+          ],
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  void didStopUserGesture() => super.noSuchMethod(
+        Invocation.method(
+          #didStopUserGesture,
+          [],
+        ),
+        returnValueForMissingStub: null,
+      );
 }

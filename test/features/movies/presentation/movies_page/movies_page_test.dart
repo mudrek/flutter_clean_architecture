@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_clean_next/core/constants/keys.dart';
+import 'package:flutter_clean_next/core/foundation/data/failure.dart';
 import 'package:flutter_clean_next/core/foundation/injector/get.dart';
 import 'package:flutter_clean_next/core/foundation/states/state.dart';
 import 'package:flutter_clean_next/features/movies/domain/entities/movie.dart';
@@ -16,6 +17,7 @@ void main() {
   late Widget testWidget;
   late MoviesViewModel moviesViewModel;
   late ViewState<List<Movie>> moviesState;
+  late MockNavigatorObserver mockNavigatorObserver;
 
   setUp(() {
     moviesState = ViewState<List<Movie>>()..loading = false;
@@ -24,6 +26,7 @@ void main() {
     get.registerFactory<MoviesViewModel>(
       () => moviesViewModel,
     );
+    mockNavigatorObserver = MockNavigatorObserver();
 
     testWidget = const MaterialApp(
       home: MoviesPage(),
@@ -78,7 +81,6 @@ void main() {
         moviesState.value = [
           MovieSample.create(),
         ];
-        moviesState.loading = false;
       });
 
       await mockNetworkImagesFor(() async {
@@ -100,4 +102,57 @@ void main() {
       });
     },
   );
+
+  testWidgets('''
+    Quando o viewModel lançar uma Failure:
+    1) Mostra a mensagem de erro na tela.
+    ''', (tester) async {
+    //Arrange
+    when(moviesViewModel.fetch()).thenAnswer((_) async {
+      moviesState.error = const Failure();
+    });
+
+    await mockNetworkImagesFor(() async {
+      when(moviesViewModel.moviesState).thenReturn(moviesState);
+
+      await mockStates(tester);
+
+      verify(moviesViewModel.fetch()).called(1);
+
+      final errorText = find.byKey(const Key(keyMoviesErrorText));
+
+      expect(errorText, findsOneWidget);
+    });
+  });
+
+  testWidgets(
+      'deve efetuar um push, para a tela de detalhes do filme, ao clicar em um filme',
+      (tester) async {
+    when(moviesViewModel.fetch()).thenAnswer((_) async {
+      moviesState.value = [
+        MovieSample.create(),
+      ];
+    });
+
+    await mockNetworkImagesFor(() async {
+      await tester.pumpWidget(
+        MaterialApp(
+          home: const MoviesPage(),
+          navigatorObservers: [mockNavigatorObserver],
+        ),
+      );
+
+      verify(moviesViewModel.fetch()).called(1);
+
+      final listTile = find.byKey(const Key('movieTile'));
+      expect(listTile, findsOneWidget);
+
+      await tester.tap(listTile);
+
+      await tester.pumpAndSettle();
+
+      // verificar se o push foi efetuado
+      verify(mockNavigatorObserver.didPush(any, any));
+    });
+  });
 }

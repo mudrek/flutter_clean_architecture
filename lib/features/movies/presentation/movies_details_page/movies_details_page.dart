@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../domain/entities/movie.dart';
+import 'widgets/movie_card_details.dart';
 
 class MovieDetailsPage extends StatefulWidget {
   final Movie movie;
@@ -15,41 +16,28 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.movie.title),
+        title: Text(widget.movie.title, key: const Key('movie_title')),
       ),
-      body: Stack(
-        children: [
-          Column(
-            children: [
-              Image.network(widget.movie.posterImageUrl),
-              Card(
-                child: Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Text(
-                            widget.movie.averageRating.toString(),
-                            style: const TextStyle(
-                              fontSize: 50.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 10.0,
-                      ),
-                      Text(widget.movie.overview),
-                    ],
+      body: SingleChildScrollView(
+        child: Stack(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  Image.network(widget.movie.posterImageUrl),
+                  const SizedBox(
+                    height: 10.0,
                   ),
-                ),
+                  MovieCardDetailsWidget(
+                    movie: widget.movie,
+                    key: const Key('movie_details'),
+                  ),
+                ],
               ),
-            ],
-          ),
-        ],
+            ),
+          ],
+        ),
       ),
     );
   }
