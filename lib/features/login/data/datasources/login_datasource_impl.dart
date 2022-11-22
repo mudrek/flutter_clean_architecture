@@ -13,7 +13,6 @@ class LoginDatasourceImpl implements LoginDatasourceInterface {
   Future<UserInfoModel> doLogin({
     required LoginRequestModel loginRequest,
   }) async {
-    // TODO verificar toJson e fromJson
     final response = await dio.post(
       'https://carros-springboot.herokuapp.com/api/v2/login',
       data: loginRequest.toJson(),

@@ -18,4 +18,8 @@ class LoginViewModel {
           )),
     );
   }
+
+  void cleanViewState() {
+    loginViewState.value = null;
+  }
 }

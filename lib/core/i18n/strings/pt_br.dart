@@ -38,4 +38,8 @@ class PtBr implements Translations {
 
   @override
   String get textMoviesList => 'Lista de filmes';
+
+  @override
+  String get textGenericFailureMessage =>
+      'Ocorrou um erro, favor tente novamente mais tarde';
 }
