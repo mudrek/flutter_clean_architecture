@@ -13,4 +13,11 @@ extension MovieModelSample on MovieModel {
         posterImageUrl: posterImageUrl,
         averageRating: averageRating,
       );
+
+  static Map<String, dynamic> createMap() => {
+        'id': 436270,
+        'title': 'Black Adam',
+        'poster_path': '/kTQ3J8oTTKofAVLYnds2cHUz9KO.jpg',
+        'averageRating': 7.5,
+      };
 }

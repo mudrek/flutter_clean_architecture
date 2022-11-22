@@ -3,12 +3,12 @@ import '../../../../core/foundation/base_repository/base_repository.dart';
 import '../../../../core/foundation/data/result.dart';
 import '../../domain/entities/movie.dart';
 import '../../domain/repositories/movies_repository_interface.dart';
-import '../datasources/movies_interface.dart';
+import '../datasources/movies_datasource_interface.dart';
 import '../mappers/movies_mapper.dart';
 
 class MoviesRepositoryImpl extends BaseRepository<CleanNextExceptionHandler>
     implements MoviesRepositoryInterface {
-  final MoviesDataSourceInterface datasource;
+  final MoviesDatasourceInterface datasource;
 
   MoviesRepositoryImpl({
     required this.datasource,

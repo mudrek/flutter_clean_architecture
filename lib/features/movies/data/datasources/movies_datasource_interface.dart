@@ -1,5 +1,5 @@
 import '../models/movie_model.dart';
 
-abstract class MoviesDataSourceInterface {
+abstract class MoviesDatasourceInterface {
   Future<List<MovieModel>> getMovies();
 }
