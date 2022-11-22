@@ -972,10 +972,6 @@ class MockMoviesViewModel extends _i1.Mock implements _i19.MoviesViewModel {
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockNavigatorObserver extends _i1.Mock implements _i20.NavigatorObserver {
-  MockNavigatorObserver() {
-    _i1.throwOnMissingStub(this);
-  }
-
   @override
   void didPush(
     _i20.Route<dynamic>? route,

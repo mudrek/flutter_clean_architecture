@@ -26,6 +26,7 @@ void main() {
     get.registerFactory<MoviesViewModel>(
       () => moviesViewModel,
     );
+
     mockNavigatorObserver = MockNavigatorObserver();
 
     testWidget = const MaterialApp(
@@ -128,6 +129,7 @@ void main() {
   testWidgets(
       'deve efetuar um push, para a tela de detalhes do filme, ao clicar em um filme',
       (tester) async {
+    when(moviesViewModel.moviesState).thenReturn(moviesState);
     when(moviesViewModel.fetch()).thenAnswer((_) async {
       moviesState.value = [
         MovieSample.create(),
@@ -151,7 +153,6 @@ void main() {
 
       await tester.pumpAndSettle();
 
-      // verificar se o push foi efetuado
       verify(mockNavigatorObserver.didPush(any, any));
     });
   });

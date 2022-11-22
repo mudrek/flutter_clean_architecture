@@ -7,13 +7,19 @@ import 'package:flutter_clean_next/features/movies/domain/usecases/get_movies_us
 import 'package:flutter_clean_next/features/movies/presentation/movies_page/viewmodels/movies_view_model.dart';
 import 'package:mockito/annotations.dart';
 
-@GenerateMocks([
-  MoviesRepositoryInterface,
-  MoviesDatasourceInterface,
-  CleanNextExceptionHandler,
-  GetMoviesUsecaseInterface,
-  Dio,
-  MoviesViewModel,
-  NavigatorObserver,
-])
+@GenerateMocks(
+  [
+    MoviesRepositoryInterface,
+    MoviesDatasourceInterface,
+    CleanNextExceptionHandler,
+    GetMoviesUsecaseInterface,
+    Dio,
+    MoviesViewModel,
+  ],
+  customMocks: [
+    MockSpec<NavigatorObserver>(
+      onMissingStub: OnMissingStub.returnDefault,
+    ),
+  ],
+)
 void main() {}
