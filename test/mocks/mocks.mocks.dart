@@ -12,12 +12,18 @@ import 'package:dio/src/dio_mixin.dart' as _i7;
 import 'package:dio/src/options.dart' as _i4;
 import 'package:dio/src/response.dart' as _i8;
 import 'package:dio/src/transformer.dart' as _i6;
-import 'package:flutter/src/widgets/navigator.dart' as _i20;
+import 'package:flutter/src/widgets/navigator.dart' as _i23;
 import 'package:flutter_clean_next/core/data/handlers/clean_next_exception_handler.dart'
     as _i16;
 import 'package:flutter_clean_next/core/foundation/data/failure.dart' as _i3;
 import 'package:flutter_clean_next/core/foundation/data/result.dart' as _i2;
 import 'package:flutter_clean_next/core/foundation/states/state.dart' as _i10;
+import 'package:flutter_clean_next/features/login/domain/entities/login_request.dart'
+    as _i22;
+import 'package:flutter_clean_next/features/login/domain/entities/user_info.dart'
+    as _i21;
+import 'package:flutter_clean_next/features/login/domain/repositories/login_repository_interface.dart'
+    as _i20;
 import 'package:flutter_clean_next/features/movies/data/datasources/movies_datasource_interface.dart'
     as _i14;
 import 'package:flutter_clean_next/features/movies/data/models/movie_model.dart'
@@ -968,14 +974,44 @@ class MockMoviesViewModel extends _i1.Mock implements _i19.MoviesViewModel {
       ) as _i12.Future<void>);
 }
 
+/// A class which mocks [LoginRepositoryInterface].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockLoginRepositoryInterface extends _i1.Mock
+    implements _i20.LoginRepositoryInterface {
+  MockLoginRepositoryInterface() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i12.Future<_i2.Result<_i21.UserInfo>> doLogin(
+          {required _i22.LoginRequest? loginRequest}) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #doLogin,
+          [],
+          {#loginRequest: loginRequest},
+        ),
+        returnValue: _i12.Future<_i2.Result<_i21.UserInfo>>.value(
+            _FakeResult_0<_i21.UserInfo>(
+          this,
+          Invocation.method(
+            #doLogin,
+            [],
+            {#loginRequest: loginRequest},
+          ),
+        )),
+      ) as _i12.Future<_i2.Result<_i21.UserInfo>>);
+}
+
 /// A class which mocks [NavigatorObserver].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockNavigatorObserver extends _i1.Mock implements _i20.NavigatorObserver {
+class MockNavigatorObserver extends _i1.Mock implements _i23.NavigatorObserver {
   @override
   void didPush(
-    _i20.Route<dynamic>? route,
-    _i20.Route<dynamic>? previousRoute,
+    _i23.Route<dynamic>? route,
+    _i23.Route<dynamic>? previousRoute,
   ) =>
       super.noSuchMethod(
         Invocation.method(
@@ -989,8 +1025,8 @@ class MockNavigatorObserver extends _i1.Mock implements _i20.NavigatorObserver {
       );
   @override
   void didPop(
-    _i20.Route<dynamic>? route,
-    _i20.Route<dynamic>? previousRoute,
+    _i23.Route<dynamic>? route,
+    _i23.Route<dynamic>? previousRoute,
   ) =>
       super.noSuchMethod(
         Invocation.method(
@@ -1004,8 +1040,8 @@ class MockNavigatorObserver extends _i1.Mock implements _i20.NavigatorObserver {
       );
   @override
   void didRemove(
-    _i20.Route<dynamic>? route,
-    _i20.Route<dynamic>? previousRoute,
+    _i23.Route<dynamic>? route,
+    _i23.Route<dynamic>? previousRoute,
   ) =>
       super.noSuchMethod(
         Invocation.method(
@@ -1019,8 +1055,8 @@ class MockNavigatorObserver extends _i1.Mock implements _i20.NavigatorObserver {
       );
   @override
   void didReplace({
-    _i20.Route<dynamic>? newRoute,
-    _i20.Route<dynamic>? oldRoute,
+    _i23.Route<dynamic>? newRoute,
+    _i23.Route<dynamic>? oldRoute,
   }) =>
       super.noSuchMethod(
         Invocation.method(
@@ -1035,8 +1071,8 @@ class MockNavigatorObserver extends _i1.Mock implements _i20.NavigatorObserver {
       );
   @override
   void didStartUserGesture(
-    _i20.Route<dynamic>? route,
-    _i20.Route<dynamic>? previousRoute,
+    _i23.Route<dynamic>? route,
+    _i23.Route<dynamic>? previousRoute,
   ) =>
       super.noSuchMethod(
         Invocation.method(
