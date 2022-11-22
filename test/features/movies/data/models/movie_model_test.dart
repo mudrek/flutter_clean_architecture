@@ -10,7 +10,7 @@ void main() {
     moviesModel = MovieModelSample.create();
   });
 
-  test('deve retornar um MovieModel válido', () {
+  test('should return a valid MovieModel', () {
     expect(moviesModel.id, 436270);
     expect(moviesModel.title, 'Black Adam');
     expect(
@@ -20,7 +20,7 @@ void main() {
     expect(moviesModel.averageRating, 7.5);
   });
 
-  test('deve validar MovieModel equatable', () {
+  test('should validate MovieModel equatable', () {
     const moviesModel2 = MovieModel(
       id: 436270,
       title: 'Black Adam',

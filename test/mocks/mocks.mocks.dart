@@ -6,8 +6,8 @@
 import 'dart:async' as _i10;
 
 import 'package:dio/src/adapter.dart' as _i5;
-import 'package:dio/src/cancel_token.dart' as _i16;
-import 'package:dio/src/dio.dart' as _i15;
+import 'package:dio/src/cancel_token.dart' as _i17;
+import 'package:dio/src/dio.dart' as _i16;
 import 'package:dio/src/dio_mixin.dart' as _i7;
 import 'package:dio/src/options.dart' as _i4;
 import 'package:dio/src/response.dart' as _i8;
@@ -24,6 +24,8 @@ import 'package:flutter_clean_next/features/movies/domain/entities/movie.dart'
     as _i11;
 import 'package:flutter_clean_next/features/movies/domain/repositories/movies_repository_interface.dart'
     as _i9;
+import 'package:flutter_clean_next/features/movies/domain/usecases/get_movies_usecase.dart'
+    as _i15;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: type=lint
@@ -179,10 +181,36 @@ class MockCleanNextExceptionHandler extends _i1.Mock
       ) as _i3.Failure);
 }
 
+/// A class which mocks [GetMoviesUsecaseInterface].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockGetMoviesUsecaseInterface extends _i1.Mock
+    implements _i15.GetMoviesUsecaseInterface {
+  MockGetMoviesUsecaseInterface() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i10.Future<_i2.Result<List<_i11.Movie>>> call() => (super.noSuchMethod(
+        Invocation.method(
+          #call,
+          [],
+        ),
+        returnValue: _i10.Future<_i2.Result<List<_i11.Movie>>>.value(
+            _FakeResult_0<List<_i11.Movie>>(
+          this,
+          Invocation.method(
+            #call,
+            [],
+          ),
+        )),
+      ) as _i10.Future<_i2.Result<List<_i11.Movie>>>);
+}
+
 /// A class which mocks [Dio].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockDio extends _i1.Mock implements _i15.Dio {
+class MockDio extends _i1.Mock implements _i16.Dio {
   MockDio() {
     _i1.throwOnMissingStub(this);
   }
@@ -258,7 +286,7 @@ class MockDio extends _i1.Mock implements _i15.Dio {
     String? path, {
     Map<String, dynamic>? queryParameters,
     _i4.Options? options,
-    _i16.CancelToken? cancelToken,
+    _i17.CancelToken? cancelToken,
     _i4.ProgressCallback? onReceiveProgress,
   }) =>
       (super.noSuchMethod(
@@ -290,7 +318,7 @@ class MockDio extends _i1.Mock implements _i15.Dio {
   _i10.Future<_i8.Response<T>> getUri<T>(
     Uri? uri, {
     _i4.Options? options,
-    _i16.CancelToken? cancelToken,
+    _i17.CancelToken? cancelToken,
     _i4.ProgressCallback? onReceiveProgress,
   }) =>
       (super.noSuchMethod(
@@ -322,7 +350,7 @@ class MockDio extends _i1.Mock implements _i15.Dio {
     dynamic data,
     Map<String, dynamic>? queryParameters,
     _i4.Options? options,
-    _i16.CancelToken? cancelToken,
+    _i17.CancelToken? cancelToken,
     _i4.ProgressCallback? onSendProgress,
     _i4.ProgressCallback? onReceiveProgress,
   }) =>
@@ -360,7 +388,7 @@ class MockDio extends _i1.Mock implements _i15.Dio {
     Uri? uri, {
     dynamic data,
     _i4.Options? options,
-    _i16.CancelToken? cancelToken,
+    _i17.CancelToken? cancelToken,
     _i4.ProgressCallback? onSendProgress,
     _i4.ProgressCallback? onReceiveProgress,
   }) =>
@@ -397,7 +425,7 @@ class MockDio extends _i1.Mock implements _i15.Dio {
     dynamic data,
     Map<String, dynamic>? queryParameters,
     _i4.Options? options,
-    _i16.CancelToken? cancelToken,
+    _i17.CancelToken? cancelToken,
     _i4.ProgressCallback? onSendProgress,
     _i4.ProgressCallback? onReceiveProgress,
   }) =>
@@ -435,7 +463,7 @@ class MockDio extends _i1.Mock implements _i15.Dio {
     Uri? uri, {
     dynamic data,
     _i4.Options? options,
-    _i16.CancelToken? cancelToken,
+    _i17.CancelToken? cancelToken,
     _i4.ProgressCallback? onSendProgress,
     _i4.ProgressCallback? onReceiveProgress,
   }) =>
@@ -472,7 +500,7 @@ class MockDio extends _i1.Mock implements _i15.Dio {
     dynamic data,
     Map<String, dynamic>? queryParameters,
     _i4.Options? options,
-    _i16.CancelToken? cancelToken,
+    _i17.CancelToken? cancelToken,
   }) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -504,7 +532,7 @@ class MockDio extends _i1.Mock implements _i15.Dio {
     Uri? uri, {
     dynamic data,
     _i4.Options? options,
-    _i16.CancelToken? cancelToken,
+    _i17.CancelToken? cancelToken,
   }) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -535,7 +563,7 @@ class MockDio extends _i1.Mock implements _i15.Dio {
     dynamic data,
     Map<String, dynamic>? queryParameters,
     _i4.Options? options,
-    _i16.CancelToken? cancelToken,
+    _i17.CancelToken? cancelToken,
   }) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -567,7 +595,7 @@ class MockDio extends _i1.Mock implements _i15.Dio {
     Uri? uri, {
     dynamic data,
     _i4.Options? options,
-    _i16.CancelToken? cancelToken,
+    _i17.CancelToken? cancelToken,
   }) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -598,7 +626,7 @@ class MockDio extends _i1.Mock implements _i15.Dio {
     dynamic data,
     Map<String, dynamic>? queryParameters,
     _i4.Options? options,
-    _i16.CancelToken? cancelToken,
+    _i17.CancelToken? cancelToken,
     _i4.ProgressCallback? onSendProgress,
     _i4.ProgressCallback? onReceiveProgress,
   }) =>
@@ -636,7 +664,7 @@ class MockDio extends _i1.Mock implements _i15.Dio {
     Uri? uri, {
     dynamic data,
     _i4.Options? options,
-    _i16.CancelToken? cancelToken,
+    _i17.CancelToken? cancelToken,
     _i4.ProgressCallback? onSendProgress,
     _i4.ProgressCallback? onReceiveProgress,
   }) =>
@@ -697,7 +725,7 @@ class MockDio extends _i1.Mock implements _i15.Dio {
     dynamic savePath, {
     _i4.ProgressCallback? onReceiveProgress,
     Map<String, dynamic>? queryParameters,
-    _i16.CancelToken? cancelToken,
+    _i17.CancelToken? cancelToken,
     bool? deleteOnError = true,
     String? lengthHeader = r'content-length',
     dynamic data,
@@ -746,7 +774,7 @@ class MockDio extends _i1.Mock implements _i15.Dio {
     Uri? uri,
     dynamic savePath, {
     _i4.ProgressCallback? onReceiveProgress,
-    _i16.CancelToken? cancelToken,
+    _i17.CancelToken? cancelToken,
     bool? deleteOnError = true,
     String? lengthHeader = r'content-length',
     dynamic data,
@@ -793,7 +821,7 @@ class MockDio extends _i1.Mock implements _i15.Dio {
     String? path, {
     dynamic data,
     Map<String, dynamic>? queryParameters,
-    _i16.CancelToken? cancelToken,
+    _i17.CancelToken? cancelToken,
     _i4.Options? options,
     _i4.ProgressCallback? onSendProgress,
     _i4.ProgressCallback? onReceiveProgress,
@@ -831,7 +859,7 @@ class MockDio extends _i1.Mock implements _i15.Dio {
   _i10.Future<_i8.Response<T>> requestUri<T>(
     Uri? uri, {
     dynamic data,
-    _i16.CancelToken? cancelToken,
+    _i17.CancelToken? cancelToken,
     _i4.Options? options,
     _i4.ProgressCallback? onSendProgress,
     _i4.ProgressCallback? onReceiveProgress,
