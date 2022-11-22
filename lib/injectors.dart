@@ -6,11 +6,17 @@ import 'core/foundation/injector/get.dart';
 import 'features/login/data/datasources/login_datasource_impl.dart';
 import 'features/login/data/datasources/login_datasource_interface.dart';
 import 'features/login/login_injector.dart';
+import 'features/movies/data/datasources/movies_datasource_impl.dart';
+import 'features/movies/data/datasources/movies_datasource_interface.dart';
+import 'features/movies/movies_injector.dart';
 
 abstract class EnvInjectors {
   Map<String, dynamic> arguments = {};
 
-  List<FeatureInjector> featureInjectors = [LoginInjector()];
+  List<FeatureInjector> featureInjectors = [
+    LoginInjector(),
+    MoviesInjector(),
+  ];
 
   Future<void> inject() async {
     get.registerLazySingleton<CleanNextExceptionHandler>(
@@ -36,6 +42,12 @@ class ReleaseInjectors extends EnvInjectors {
 
     get.registerFactory<LoginDatasourceInterface>(
       () => LoginDatasourceImpl(
+        dio: get(),
+      ),
+    );
+
+    get.registerFactory<MoviesDatasourceInterface>(
+      () => MoviesDatasourceImpl(
         dio: get(),
       ),
     );
