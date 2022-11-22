@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../core/constants/keys.dart' as keys;
+import '../../../../../core/i18n/i18n.dart';
 import '../../../domain/entities/movie.dart';
 
 class MovieCardDetailsWidget extends StatelessWidget {
@@ -21,12 +23,12 @@ class MovieCardDetailsWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Text(
-                  'Rating: ${movie.averageRating.toString()}',
+                  '${I18n.strings.textRating} ${movie.averageRating.toString()}',
                   style: const TextStyle(
                     fontSize: 30.0,
                     fontWeight: FontWeight.bold,
                   ),
-                  key: const Key('movie_rating'),
+                  key: const Key(keys.keyMoviesRating),
                 ),
               ],
             ),
@@ -34,12 +36,12 @@ class MovieCardDetailsWidget extends StatelessWidget {
               height: 10.0,
             ),
             movie.overview.isEmpty
-                ? const Text('No overview')
+                ? Text(I18n.strings.textOverview)
                 : Text(
                     movie.overview,
                     textAlign: TextAlign.justify,
                     style: const TextStyle(fontSize: 20.0),
-                    key: const Key('movie_overview'),
+                    key: const Key(keys.keyMoviesOverview),
                   ),
           ],
         ),

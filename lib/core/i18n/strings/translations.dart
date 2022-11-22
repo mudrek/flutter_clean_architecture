@@ -16,6 +16,7 @@ abstract class Translations {
 
   // Movies
   String get textMoviesList;
-
   String get textGenericFailureMessage;
+  String get textRating;
+  String get textOverview;
 }

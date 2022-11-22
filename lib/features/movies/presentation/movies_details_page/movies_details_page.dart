@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/constants/keys.dart' as keys;
 import '../../domain/entities/movie.dart';
 import 'widgets/movie_card_details.dart';
 
@@ -16,7 +17,7 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.movie.title, key: const Key('movie_title')),
+        title: Text(widget.movie.title, key: const Key(keys.keyMoviesTitle)),
       ),
       body: SingleChildScrollView(
         child: Stack(
@@ -31,7 +32,7 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
                   ),
                   MovieCardDetailsWidget(
                     movie: widget.movie,
-                    key: const Key('movie_details'),
+                    key: const Key(keys.keyMoviesDetails),
                   ),
                 ],
               ),

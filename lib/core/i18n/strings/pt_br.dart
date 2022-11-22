@@ -42,4 +42,10 @@ class PtBr implements Translations {
   @override
   String get textGenericFailureMessage =>
       'Ocorrou um erro, favor tente novamente mais tarde';
+
+  @override
+  String get textOverview => 'Sem visão geral';
+
+  @override
+  String get textRating => 'Avaliação:';
 }
