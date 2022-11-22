@@ -18,6 +18,6 @@ extension MovieModelSample on MovieModel {
         'id': 436270,
         'title': 'Black Adam',
         'poster_path': '/kTQ3J8oTTKofAVLYnds2cHUz9KO.jpg',
-        'averageRating': 7.5,
+        'vote_average': 7.5,
       };
 }

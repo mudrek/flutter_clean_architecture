@@ -10,7 +10,7 @@ MovieModel _$MovieModelFromJson(Map<String, dynamic> json) => MovieModel(
       id: json['id'] as int,
       title: json['title'] as String,
       posterImageUrl: json['poster_path'] as String,
-      averageRating: (json['averageRating'] as num).toDouble(),
+      averageRating: (json['vote_average'] as num).toDouble(),
     );
 
 Map<String, dynamic> _$MovieModelToJson(MovieModel instance) =>
@@ -18,5 +18,5 @@ Map<String, dynamic> _$MovieModelToJson(MovieModel instance) =>
       'id': instance.id,
       'title': instance.title,
       'poster_path': instance.posterImageUrl,
-      'averageRating': instance.averageRating,
+      'vote_average': instance.averageRating,
     };

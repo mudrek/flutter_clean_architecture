@@ -10,15 +10,21 @@ class MoviesDatasourceImpl implements MoviesDatasourceInterface {
 
   @override
   Future<List<MovieModel>> getMovies() async {
-    // TODO verificar toJson e fromJson
     final response = await dio.get(
       'https://api.themoviedb.org/3/movie/popular',
       queryParameters: {
-        'apiKey': '95f97e6483bb4760836f59dbebd7434a',
+        'api_key': 'c13a6d80fdb0b0f3219a0d98db11b50e',
         'language': 'pt-BR',
       },
     );
 
-    return response.data.map((e) => MovieModel.fromJson(e)).toList();
+    if (response.statusCode == 200) {
+      final result = response.data['results'] as List;
+      return result.map((e) => MovieModel.fromJson(e)).toList();
+    } else {
+      throw Exception(
+        response.data!['status_message'],
+      );
+    }
   }
 }
