@@ -4,7 +4,7 @@ import '../entities/user_info.dart';
 import '../repositories/login_repository_interface.dart';
 
 abstract class DoLoginUsecaseInterface {
-  Future<Result<UserInfo>> call({required LoginRequest loginRequestEntity});
+  Future<Result<UserInfo>> call({required LoginRequest loginRequest});
 }
 
 class DoLoginUsecaseImpl implements DoLoginUsecaseInterface {
@@ -14,8 +14,8 @@ class DoLoginUsecaseImpl implements DoLoginUsecaseInterface {
 
   @override
   Future<Result<UserInfo>> call({
-    required LoginRequest loginRequestEntity,
+    required LoginRequest loginRequest,
   }) async {
-    return await loginRepository.doLogin(loginRequest: loginRequestEntity);
+    return await loginRepository.doLogin(loginRequest: loginRequest);
   }
 }
