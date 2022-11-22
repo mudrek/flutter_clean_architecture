@@ -34,5 +34,8 @@ class PtBr implements Translations {
   String textLoginSuccessName(String name) => 'Nome: $name';
 
   @override
-  String get textButtonLoginSuccess => 'Ir para movies';
+  String get textButtonLoginSuccess => 'Ir para filmes';
+
+  @override
+  String get textMoviesList => 'Lista de filmes';
 }

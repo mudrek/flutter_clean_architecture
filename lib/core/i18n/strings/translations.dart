@@ -13,4 +13,7 @@ abstract class Translations {
   String get textButtonLoginSuccess;
   String textLoginSuccessEmail(String email);
   String textLoginSuccessName(String name);
+
+  // Movies
+  String get textMoviesList;
 }
