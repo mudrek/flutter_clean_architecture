@@ -51,14 +51,8 @@ void main() {
         any,
         queryParameters: anyNamed('queryParameters'),
       ),
-    ).thenAnswer(
-      (_) async => Response(
-        statusCode: 400,
-        data: result,
-        requestOptions: RequestOptions(
-          path: 'https://api.themoviedb.org/3/movie/popular',
-        ),
-      ),
+    ).thenThrow(
+      Exception(result['status_message']),
     );
   }
 

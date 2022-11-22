@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../domain/entities/movie.dart';
+import '../../movies_details_page/movies_details_page.dart';
 
 class MovieTileWidget extends StatelessWidget {
   final Movie movie;
@@ -22,6 +23,15 @@ class MovieTileWidget extends StatelessWidget {
           tag: movie.id,
           child: Image.network(movie.posterImageUrl),
         ),
+      ),
+      onTap: () => onTap(context),
+    );
+  }
+
+  void onTap(BuildContext context) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (_) => MovieDetailsPage(movie: movie),
       ),
     );
   }

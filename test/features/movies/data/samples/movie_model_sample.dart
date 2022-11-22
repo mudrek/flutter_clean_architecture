@@ -6,12 +6,14 @@ extension MovieModelSample on MovieModel {
     String title = 'Black Adam',
     String posterImageUrl = '/kTQ3J8oTTKofAVLYnds2cHUz9KO.jpg',
     double averageRating = 7.5,
+    String overview = 'Dwayne Johnson as Black Adam',
   }) =>
       MovieModel(
         id: id,
         title: title,
         posterImageUrl: posterImageUrl,
         averageRating: averageRating,
+        overview: overview,
       );
 
   static Map<String, dynamic> createMap() => {
@@ -19,5 +21,6 @@ extension MovieModelSample on MovieModel {
         'title': 'Black Adam',
         'poster_path': '/kTQ3J8oTTKofAVLYnds2cHUz9KO.jpg',
         'vote_average': 7.5,
+        'overview': 'Dwayne Johnson as Black Adam',
       };
 }

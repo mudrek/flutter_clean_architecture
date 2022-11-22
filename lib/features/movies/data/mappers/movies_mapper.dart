@@ -8,6 +8,7 @@ class MoviesMapper {
       title: movie.title,
       posterImageUrl: 'https://image.tmdb.org/t/p/w300${movie.posterImageUrl}',
       averageRating: movie.averageRating,
+      overview: movie.overview,
     );
   }
 }

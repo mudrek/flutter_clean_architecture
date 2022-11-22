@@ -18,13 +18,7 @@ class MoviesDatasourceImpl implements MoviesDatasourceInterface {
       },
     );
 
-    if (response.statusCode == 200) {
-      final result = response.data['results'] as List;
-      return result.map((e) => MovieModel.fromJson(e)).toList();
-    } else {
-      throw Exception(
-        response.data!['status_message'],
-      );
-    }
+    final result = response.data['results'] as List;
+    return result.map((e) => MovieModel.fromJson(e)).toList();
   }
 }
