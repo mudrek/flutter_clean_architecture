@@ -14,7 +14,7 @@ class LoginRepositoryImpl extends BaseRepository<CleanNextExceptionHandler>
 
   LoginRepositoryImpl({
     required this.loginDatasource,
-    CleanNextExceptionHandler? exceptionHandler,
+    required CleanNextExceptionHandler? exceptionHandler,
   }) : super(exceptionHandler: exceptionHandler);
 
   @override

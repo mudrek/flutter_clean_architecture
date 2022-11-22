@@ -23,6 +23,7 @@ class ButtonWidget extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(16),
         width: 200,
+        height: 54,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(22),
           gradient: const LinearGradient(
@@ -33,8 +34,12 @@ class ButtonWidget extends StatelessWidget {
         ),
         child: showProgress
             ? const Center(
-                child: CircularProgressIndicator(
-                  valueColor: AlwaysStoppedAnimation<Color>(textColor),
+                child: SizedBox(
+                  width: 24,
+                  height: 24,
+                  child: CircularProgressIndicator(
+                    valueColor: AlwaysStoppedAnimation<Color>(textColor),
+                  ),
                 ),
               )
             : Text(

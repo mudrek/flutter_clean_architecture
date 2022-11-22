@@ -5,9 +5,9 @@ mixin BaseForm<T extends StatefulWidget> on State<T> {
 
   GlobalKey<FormState> get formKey => _formKey;
 
-  void formUpdate() {
+  bool formUpdate() {
     FocusScope.of(context).unfocus();
-    _formKey.currentState?.validate();
+    return _formKey.currentState?.validate() ?? false;
   }
 
   @override
