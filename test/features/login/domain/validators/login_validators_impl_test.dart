@@ -3,23 +3,45 @@ import 'package:flutter_clean_next/features/login/domain/validators/login_valida
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  test('passwordValidator', () {
-    final validator = LoginValidatorsImpl();
+  late LoginValidatorsImpl validator;
 
-    final validatorPassword = validator.passwordValidator()?.call('');
-    expect(validatorPassword, I18n.strings.validatorRequiredPassword);
-
-    final validatorPassword2 = validator.passwordValidator()?.call('12');
-    expect(validatorPassword2, I18n.strings.validatorMinLengthPassword);
+  setUp(() {
+    validator = LoginValidatorsImpl();
   });
 
-  test('usernameValidator', () {
-    final validator = LoginValidatorsImpl();
+  group('passwordValidator', () {
+    test('should return required message when string is empty', () {
+      final validatorPassword = validator.passwordValidator()?.call('');
+      expect(validatorPassword, I18n.strings.validatorRequiredPassword);
 
-    final validatorUsername = validator.usernameValidator()?.call('');
-    expect(validatorUsername, I18n.strings.validatorRequiredUsername);
+      final validatorPassword2 = validator.passwordValidator()?.call(null);
+      expect(validatorPassword2, I18n.strings.validatorRequiredPassword);
+    });
 
-    final validatorPass2 = validator.usernameValidator()?.call('us');
-    expect(validatorPass2, I18n.strings.validatorMinLengthUsername);
+    test(
+      'should return minLenght message when string is less than 3 characters',
+      () {
+        final validatorPassword = validator.passwordValidator()?.call('12');
+        expect(validatorPassword, I18n.strings.validatorMinLengthPassword);
+      },
+    );
+  });
+
+  group('usernameValidator', () {
+    test('should return required message when string is empty', () {
+      final validatorUsername = validator.usernameValidator()?.call('');
+      expect(validatorUsername, I18n.strings.validatorRequiredUsername);
+
+      final validatorUsername2 = validator.usernameValidator()?.call(null);
+      expect(validatorUsername2, I18n.strings.validatorRequiredUsername);
+    });
+
+    test(
+      'should return minLenght message when string is less than 3 characters',
+      () {
+        final validatorUsername = validator.usernameValidator()?.call('12');
+        expect(validatorUsername, I18n.strings.validatorMinLengthUsername);
+      },
+    );
   });
 }
