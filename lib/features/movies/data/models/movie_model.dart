@@ -9,6 +9,7 @@ class MovieModel extends Equatable {
   final String title;
   @JsonKey(name: 'poster_path')
   final String posterImageUrl;
+  @JsonKey(name: 'vote_average')
   final double averageRating;
 
   const MovieModel({
