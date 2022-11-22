@@ -29,12 +29,6 @@ class _LoginPageState extends State<LoginPage> with BaseForm {
     return Scaffold(
       body: Container(
         padding: const EdgeInsets.all(16),
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('assets/images/bg_login.jpg'),
-            fit: BoxFit.cover,
-          ),
-        ),
         child: Form(
           key: formKey,
           child: ListView(
@@ -86,6 +80,8 @@ class _LoginPageState extends State<LoginPage> with BaseForm {
                         builder: (context) => LoginAlertWidget(userInfo: value),
                       );
                     });
+
+                    viewModel.cleanViewState();
                   }
 
                   final isLoading = state.loading;

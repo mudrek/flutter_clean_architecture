@@ -35,4 +35,8 @@ class PtBr implements Translations {
 
   @override
   String get textButtonLoginSuccess => 'Ir para movies';
+
+  @override
+  String get textGenericFailureMessage =>
+      'Ocorrou um erro, favor tente novamente mais tarde';
 }

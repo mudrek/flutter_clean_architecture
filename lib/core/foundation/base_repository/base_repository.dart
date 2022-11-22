@@ -1,5 +1,5 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../data/failure.dart';
 import '../data/result.dart';
@@ -30,12 +30,16 @@ abstract class BaseRepository<EH extends BaseExceptionHandler> {
         } else {
           rethrow;
         }
-      } on PlatformException catch (e) {
-        return Result.failure(
-          PlatformFailure(
-            message: e.message,
-          ),
-        );
+      } on DioError catch (e) {
+        final List<DioErrorType> dioErrorTypes = [
+          DioErrorType.connectTimeout,
+          DioErrorType.receiveTimeout,
+          DioErrorType.sendTimeout,
+        ];
+        if (dioErrorTypes.contains(e.type)) {
+          return const Result.failure(TimeoutFailure());
+        }
+        return Result.failure(GenericFailure());
       } catch (e) {
         return Result.failure(GenericFailure());
       }

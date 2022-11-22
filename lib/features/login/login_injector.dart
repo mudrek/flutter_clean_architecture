@@ -1,5 +1,6 @@
 import '../../core/foundation/injector/feature_injector.dart';
 import '../../core/foundation/injector/get.dart';
+import 'data/handlers/login_exception_handler.dart';
 import 'data/repositories/login_repository_impl.dart';
 import 'domain/repositories/login_repository_interface.dart';
 import 'domain/usecases/do_login_usecase.dart';
@@ -44,5 +45,9 @@ class LoginInjector extends FeatureInjector {
   }
 
   @override
-  void injectExceptionHandler() {}
+  void injectExceptionHandler() {
+    get.registerLazySingleton<LoginExceptionHandler>(
+      () => LoginExceptionHandler(),
+    );
+  }
 }

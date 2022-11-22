@@ -13,4 +13,6 @@ abstract class Translations {
   String get textButtonLoginSuccess;
   String textLoginSuccessEmail(String email);
   String textLoginSuccessName(String name);
+
+  String get textGenericFailureMessage;
 }
