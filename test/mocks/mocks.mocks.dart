@@ -12,9 +12,11 @@ import 'package:dio/src/dio_mixin.dart' as _i6;
 import 'package:dio/src/options.dart' as _i3;
 import 'package:dio/src/response.dart' as _i7;
 import 'package:dio/src/transformer.dart' as _i5;
-import 'package:flutter/src/widgets/navigator.dart' as _i23;
+import 'package:flutter/src/widgets/navigator.dart' as _i24;
 import 'package:flutter_clean_next/core/foundation/data/failure.dart' as _i10;
 import 'package:flutter_clean_next/core/foundation/data/result.dart' as _i2;
+import 'package:flutter_clean_next/core/foundation/exception_handler/base_exception_handler.dart'
+    as _i23;
 import 'package:flutter_clean_next/core/foundation/states/state.dart' as _i9;
 import 'package:flutter_clean_next/features/login/domain/entities/login_request.dart'
     as _i21;
@@ -1004,14 +1006,39 @@ class MockMoviesExceptionHandler extends _i1.Mock
       ) as _i10.Failure);
 }
 
+/// A class which mocks [BaseExceptionHandler].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockBaseExceptionHandler extends _i1.Mock
+    implements _i23.BaseExceptionHandler {
+  MockBaseExceptionHandler() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i10.Failure handle(Object? e) => (super.noSuchMethod(
+        Invocation.method(
+          #handle,
+          [e],
+        ),
+        returnValue: _FakeFailure_8(
+          this,
+          Invocation.method(
+            #handle,
+            [e],
+          ),
+        ),
+      ) as _i10.Failure);
+}
+
 /// A class which mocks [NavigatorObserver].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockNavigatorObserver extends _i1.Mock implements _i23.NavigatorObserver {
+class MockNavigatorObserver extends _i1.Mock implements _i24.NavigatorObserver {
   @override
   void didPush(
-    _i23.Route<dynamic>? route,
-    _i23.Route<dynamic>? previousRoute,
+    _i24.Route<dynamic>? route,
+    _i24.Route<dynamic>? previousRoute,
   ) =>
       super.noSuchMethod(
         Invocation.method(
@@ -1025,8 +1052,8 @@ class MockNavigatorObserver extends _i1.Mock implements _i23.NavigatorObserver {
       );
   @override
   void didPop(
-    _i23.Route<dynamic>? route,
-    _i23.Route<dynamic>? previousRoute,
+    _i24.Route<dynamic>? route,
+    _i24.Route<dynamic>? previousRoute,
   ) =>
       super.noSuchMethod(
         Invocation.method(
@@ -1040,8 +1067,8 @@ class MockNavigatorObserver extends _i1.Mock implements _i23.NavigatorObserver {
       );
   @override
   void didRemove(
-    _i23.Route<dynamic>? route,
-    _i23.Route<dynamic>? previousRoute,
+    _i24.Route<dynamic>? route,
+    _i24.Route<dynamic>? previousRoute,
   ) =>
       super.noSuchMethod(
         Invocation.method(
@@ -1055,8 +1082,8 @@ class MockNavigatorObserver extends _i1.Mock implements _i23.NavigatorObserver {
       );
   @override
   void didReplace({
-    _i23.Route<dynamic>? newRoute,
-    _i23.Route<dynamic>? oldRoute,
+    _i24.Route<dynamic>? newRoute,
+    _i24.Route<dynamic>? oldRoute,
   }) =>
       super.noSuchMethod(
         Invocation.method(
@@ -1071,8 +1098,8 @@ class MockNavigatorObserver extends _i1.Mock implements _i23.NavigatorObserver {
       );
   @override
   void didStartUserGesture(
-    _i23.Route<dynamic>? route,
-    _i23.Route<dynamic>? previousRoute,
+    _i24.Route<dynamic>? route,
+    _i24.Route<dynamic>? previousRoute,
   ) =>
       super.noSuchMethod(
         Invocation.method(
