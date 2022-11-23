@@ -10,6 +10,11 @@ import 'package:flutter_clean_next/features/movies/domain/repositories/movies_re
 import 'package:flutter_clean_next/features/movies/domain/usecases/get_movies_usecase.dart';
 import 'package:flutter_clean_next/features/movies/presentation/movies_page/viewmodels/movies_view_model.dart';
 import 'package:mockito/annotations.dart';
+import 'package:mockito/mockito.dart';
+
+class MockFunction<I, O> extends Mock {
+  O call(I? param);
+}
 
 @GenerateMocks(
   [

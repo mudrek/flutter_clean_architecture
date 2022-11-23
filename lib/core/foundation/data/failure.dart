@@ -16,9 +16,6 @@ class Failure extends Equatable implements Exception {
   });
 
   @override
-  String toString() => '$runtimeType Exception';
-
-  @override
   List<Object?> get props => [
         isWarning,
         title,
