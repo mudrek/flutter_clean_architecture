@@ -19,6 +19,10 @@ void main() {
     );
     expect(moviesModel.averageRating, 7.5);
     expect(moviesModel.overview, 'Dwayne Johnson as Black Adam');
+    expect(
+      moviesModel.bannerImageUrl,
+      '/bQXAqRx2Fgc46uCVWgoPz5L5Dtr.jpg',
+    );
   });
 
   test('should validate MovieModel equatable', () {
@@ -28,6 +32,7 @@ void main() {
       posterImageUrl: '/kTQ3J8oTTKofAVLYnds2cHUz9KO.jpg',
       averageRating: 7.5,
       overview: 'Dwayne Johnson as Black Adam',
+      bannerImageUrl: '/bQXAqRx2Fgc46uCVWgoPz5L5Dtr.jpg',
     );
 
     expect(moviesModel, moviesModel2);

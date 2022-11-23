@@ -12,4 +12,5 @@ MovieModel _$MovieModelFromJson(Map<String, dynamic> json) => MovieModel(
       posterImageUrl: json['poster_path'] as String,
       averageRating: (json['vote_average'] as num).toDouble(),
       overview: json['overview'] as String,
+      bannerImageUrl: json['backdrop_path'] as String,
     );

@@ -1,7 +1,6 @@
-import '../../core/data/handlers/clean_next_exception_handler.dart';
-import '../../core/foundation/exception_handler/base_exception_handler.dart';
 import '../../core/foundation/injector/feature_injector.dart';
 import '../../core/foundation/injector/get.dart';
+import 'data/handlers/movies_exception_handler.dart';
 import 'data/repositories/movies_repository_impl.dart';
 import 'domain/repositories/movies_repository_interface.dart';
 import 'domain/usecases/get_movies_usecase.dart';
@@ -41,8 +40,8 @@ class MoviesInjector extends FeatureInjector {
 
   @override
   void injectExceptionHandler() {
-    get.registerFactory<BaseExceptionHandler>(
-      () => CleanNextExceptionHandler(),
+    get.registerFactory<MoviesExceptionHandler>(
+      () => MoviesExceptionHandler(),
     );
   }
 }

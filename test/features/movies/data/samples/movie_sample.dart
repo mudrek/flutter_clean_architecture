@@ -5,9 +5,11 @@ extension MovieSample on Movie {
     int id = 436270,
     String title = 'Black Adam',
     String posterImageUrl =
-        'https://image.tmdb.org/t/p/w300/kTQ3J8oTTKofAVLYnds2cHUz9KO.jpg',
+        'https://image.tmdb.org/t/p/w500/kTQ3J8oTTKofAVLYnds2cHUz9KO.jpg',
     double averageRating = 7.5,
     String overview = 'Dwayne Johnson as Black Adam',
+    String bannerImageUrl =
+        'https://image.tmdb.org/t/p/w500/bQXAqRx2Fgc46uCVWgoPz5L5Dtr.jpg',
   }) =>
       Movie(
         id: id,
@@ -15,5 +17,6 @@ extension MovieSample on Movie {
         posterImageUrl: posterImageUrl,
         averageRating: averageRating,
         overview: overview,
+        bannerImageUrl: bannerImageUrl,
       );
 }

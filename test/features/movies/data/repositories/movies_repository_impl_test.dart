@@ -13,11 +13,11 @@ import '../samples/movie_sample.dart';
 void main() {
   late MoviesRepositoryInterface repository;
   late MockMoviesDatasourceInterface datasource;
-  late MockCleanNextExceptionHandler exceptionHandler;
+  late MockMoviesExceptionHandler exceptionHandler;
 
   setUp(() {
     datasource = MockMoviesDatasourceInterface();
-    exceptionHandler = MockCleanNextExceptionHandler();
+    exceptionHandler = MockMoviesExceptionHandler();
     repository = MoviesRepositoryImpl(
       datasource: datasource,
       exceptionHandler: exceptionHandler,
