@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 
-import 'core/data/handlers/clean_next_exception_handler.dart';
 import 'core/foundation/injector/feature_injector.dart';
 import 'core/foundation/injector/get.dart';
 import 'features/login/data/datasources/login_datasource_impl.dart';
@@ -19,10 +18,6 @@ abstract class EnvInjectors {
   ];
 
   Future<void> inject() async {
-    get.registerLazySingleton<CleanNextExceptionHandler>(
-      () => CleanNextExceptionHandler(),
-    );
-
     injectDatasources();
 
     featureInjectors.forEach(((e) => e.inject()));

@@ -14,6 +14,8 @@ class MovieModel extends Equatable {
   @JsonKey(name: 'vote_average')
   final double averageRating;
   final String overview;
+  @JsonKey(name: 'backdrop_path')
+  final String bannerImageUrl;
 
   const MovieModel({
     required this.id,
@@ -21,6 +23,7 @@ class MovieModel extends Equatable {
     required this.posterImageUrl,
     required this.averageRating,
     required this.overview,
+    required this.bannerImageUrl,
   });
 
   factory MovieModel.fromJson(Map<String, dynamic> json) =>
@@ -28,5 +31,5 @@ class MovieModel extends Equatable {
 
   @override
   List<Object?> get props =>
-      [id, title, posterImageUrl, averageRating, overview];
+      [id, title, posterImageUrl, averageRating, overview, bannerImageUrl];
 }

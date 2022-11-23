@@ -41,7 +41,7 @@ import 'package:flutter_clean_next/features/movies/domain/entities/movie.dart'
 import 'package:flutter_clean_next/features/movies/domain/repositories/movies_repository_interface.dart'
     as _i12;
 import 'package:flutter_clean_next/features/movies/domain/usecases/get_movies_usecase.dart'
-    as _i9;
+    as _i8;
 import 'package:flutter_clean_next/features/movies/presentation/movies_page/viewmodels/movies_view_model.dart'
     as _i20;
 import 'package:mockito/mockito.dart' as _i1;
@@ -67,8 +67,8 @@ class _FakeResult_0<T> extends _i1.SmartFake implements _i2.Result<T> {
         );
 }
 
-class _FakeFailure_1 extends _i1.SmartFake implements _i3.Failure {
-  _FakeFailure_1(
+class _FakeBaseOptions_1 extends _i1.SmartFake implements _i3.BaseOptions {
+  _FakeBaseOptions_1(
     Object parent,
     Invocation parentInvocation,
   ) : super(
@@ -77,8 +77,9 @@ class _FakeFailure_1 extends _i1.SmartFake implements _i3.Failure {
         );
 }
 
-class _FakeBaseOptions_2 extends _i1.SmartFake implements _i4.BaseOptions {
-  _FakeBaseOptions_2(
+class _FakeHttpClientAdapter_2 extends _i1.SmartFake
+    implements _i4.HttpClientAdapter {
+  _FakeHttpClientAdapter_2(
     Object parent,
     Invocation parentInvocation,
   ) : super(
@@ -87,9 +88,8 @@ class _FakeBaseOptions_2 extends _i1.SmartFake implements _i4.BaseOptions {
         );
 }
 
-class _FakeHttpClientAdapter_3 extends _i1.SmartFake
-    implements _i5.HttpClientAdapter {
-  _FakeHttpClientAdapter_3(
+class _FakeTransformer_3 extends _i1.SmartFake implements _i5.Transformer {
+  _FakeTransformer_3(
     Object parent,
     Invocation parentInvocation,
   ) : super(
@@ -98,8 +98,8 @@ class _FakeHttpClientAdapter_3 extends _i1.SmartFake
         );
 }
 
-class _FakeTransformer_4 extends _i1.SmartFake implements _i6.Transformer {
-  _FakeTransformer_4(
+class _FakeInterceptors_4 extends _i1.SmartFake implements _i6.Interceptors {
+  _FakeInterceptors_4(
     Object parent,
     Invocation parentInvocation,
   ) : super(
@@ -108,8 +108,8 @@ class _FakeTransformer_4 extends _i1.SmartFake implements _i6.Transformer {
         );
 }
 
-class _FakeInterceptors_5 extends _i1.SmartFake implements _i7.Interceptors {
-  _FakeInterceptors_5(
+class _FakeResponse_5<T> extends _i1.SmartFake implements _i7.Response<T> {
+  _FakeResponse_5(
     Object parent,
     Invocation parentInvocation,
   ) : super(
@@ -118,8 +118,9 @@ class _FakeInterceptors_5 extends _i1.SmartFake implements _i7.Interceptors {
         );
 }
 
-class _FakeResponse_6<T> extends _i1.SmartFake implements _i8.Response<T> {
-  _FakeResponse_6(
+class _FakeGetMoviesUsecaseInterface_6 extends _i1.SmartFake
+    implements _i8.GetMoviesUsecaseInterface {
+  _FakeGetMoviesUsecaseInterface_6(
     Object parent,
     Invocation parentInvocation,
   ) : super(
@@ -128,9 +129,8 @@ class _FakeResponse_6<T> extends _i1.SmartFake implements _i8.Response<T> {
         );
 }
 
-class _FakeGetMoviesUsecaseInterface_7 extends _i1.SmartFake
-    implements _i9.GetMoviesUsecaseInterface {
-  _FakeGetMoviesUsecaseInterface_7(
+class _FakeViewState_7<T> extends _i1.SmartFake implements _i9.ViewState<T> {
+  _FakeViewState_7(
     Object parent,
     Invocation parentInvocation,
   ) : super(
@@ -139,8 +139,8 @@ class _FakeGetMoviesUsecaseInterface_7 extends _i1.SmartFake
         );
 }
 
-class _FakeViewState_8<T> extends _i1.SmartFake implements _i10.ViewState<T> {
-  _FakeViewState_8(
+class _FakeFailure_8 extends _i1.SmartFake implements _i10.Failure {
+  _FakeFailure_8(
     Object parent,
     Invocation parentInvocation,
   ) : super(
@@ -234,7 +234,7 @@ class MockCleanNextExceptionHandler extends _i1.Mock
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockGetMoviesUsecaseInterface extends _i1.Mock
-    implements _i9.GetMoviesUsecaseInterface {
+    implements _i8.GetMoviesUsecaseInterface {
   MockGetMoviesUsecaseInterface() {
     _i1.throwOnMissingStub(this);
   }
@@ -265,15 +265,15 @@ class MockDio extends _i1.Mock implements _i18.Dio {
   }
 
   @override
-  _i4.BaseOptions get options => (super.noSuchMethod(
+  _i3.BaseOptions get options => (super.noSuchMethod(
         Invocation.getter(#options),
-        returnValue: _FakeBaseOptions_2(
+        returnValue: _FakeBaseOptions_1(
           this,
           Invocation.getter(#options),
         ),
-      ) as _i4.BaseOptions);
+      ) as _i3.BaseOptions);
   @override
-  set options(_i4.BaseOptions? _options) => super.noSuchMethod(
+  set options(_i3.BaseOptions? _options) => super.noSuchMethod(
         Invocation.setter(
           #options,
           _options,
@@ -281,15 +281,15 @@ class MockDio extends _i1.Mock implements _i18.Dio {
         returnValueForMissingStub: null,
       );
   @override
-  _i5.HttpClientAdapter get httpClientAdapter => (super.noSuchMethod(
+  _i4.HttpClientAdapter get httpClientAdapter => (super.noSuchMethod(
         Invocation.getter(#httpClientAdapter),
-        returnValue: _FakeHttpClientAdapter_3(
+        returnValue: _FakeHttpClientAdapter_2(
           this,
           Invocation.getter(#httpClientAdapter),
         ),
-      ) as _i5.HttpClientAdapter);
+      ) as _i4.HttpClientAdapter);
   @override
-  set httpClientAdapter(_i5.HttpClientAdapter? _httpClientAdapter) =>
+  set httpClientAdapter(_i4.HttpClientAdapter? _httpClientAdapter) =>
       super.noSuchMethod(
         Invocation.setter(
           #httpClientAdapter,
@@ -298,15 +298,15 @@ class MockDio extends _i1.Mock implements _i18.Dio {
         returnValueForMissingStub: null,
       );
   @override
-  _i6.Transformer get transformer => (super.noSuchMethod(
+  _i5.Transformer get transformer => (super.noSuchMethod(
         Invocation.getter(#transformer),
-        returnValue: _FakeTransformer_4(
+        returnValue: _FakeTransformer_3(
           this,
           Invocation.getter(#transformer),
         ),
-      ) as _i6.Transformer);
+      ) as _i5.Transformer);
   @override
-  set transformer(_i6.Transformer? _transformer) => super.noSuchMethod(
+  set transformer(_i5.Transformer? _transformer) => super.noSuchMethod(
         Invocation.setter(
           #transformer,
           _transformer,
@@ -314,13 +314,13 @@ class MockDio extends _i1.Mock implements _i18.Dio {
         returnValueForMissingStub: null,
       );
   @override
-  _i7.Interceptors get interceptors => (super.noSuchMethod(
+  _i6.Interceptors get interceptors => (super.noSuchMethod(
         Invocation.getter(#interceptors),
-        returnValue: _FakeInterceptors_5(
+        returnValue: _FakeInterceptors_4(
           this,
           Invocation.getter(#interceptors),
         ),
-      ) as _i7.Interceptors);
+      ) as _i6.Interceptors);
   @override
   void close({bool? force = false}) => super.noSuchMethod(
         Invocation.method(
@@ -772,13 +772,13 @@ class MockDio extends _i1.Mock implements _i18.Dio {
   _i13.Future<_i8.Response<dynamic>> download(
     String? urlPath,
     dynamic savePath, {
-    _i4.ProgressCallback? onReceiveProgress,
+    _i3.ProgressCallback? onReceiveProgress,
     Map<String, dynamic>? queryParameters,
     _i19.CancelToken? cancelToken,
     bool? deleteOnError = true,
     String? lengthHeader = r'content-length',
     dynamic data,
-    _i4.Options? options,
+    _i3.Options? options,
   }) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -827,7 +827,7 @@ class MockDio extends _i1.Mock implements _i18.Dio {
     bool? deleteOnError = true,
     String? lengthHeader = r'content-length',
     dynamic data,
-    _i4.Options? options,
+    _i3.Options? options,
   }) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -966,13 +966,13 @@ class MockMoviesViewModel extends _i1.Mock implements _i20.MoviesViewModel {
   }
 
   @override
-  _i9.GetMoviesUsecaseInterface get getMoviesUsecase => (super.noSuchMethod(
+  _i8.GetMoviesUsecaseInterface get getMoviesUsecase => (super.noSuchMethod(
         Invocation.getter(#getMoviesUsecase),
-        returnValue: _FakeGetMoviesUsecaseInterface_7(
+        returnValue: _FakeGetMoviesUsecaseInterface_6(
           this,
           Invocation.getter(#getMoviesUsecase),
         ),
-      ) as _i9.GetMoviesUsecaseInterface);
+      ) as _i8.GetMoviesUsecaseInterface);
   @override
   _i10.ViewState<List<_i14.Movie>> get moviesState => (super.noSuchMethod(
         Invocation.getter(#moviesState),

@@ -15,10 +15,14 @@ void main() {
     expect(movie.title, 'Black Adam');
     expect(
       movie.posterImageUrl,
-      'https://image.tmdb.org/t/p/w300/kTQ3J8oTTKofAVLYnds2cHUz9KO.jpg',
+      'https://image.tmdb.org/t/p/w500/kTQ3J8oTTKofAVLYnds2cHUz9KO.jpg',
     );
     expect(movie.averageRating, 7.5);
     expect(movie.overview, 'Dwayne Johnson as Black Adam');
+    expect(
+      movie.bannerImageUrl,
+      'https://image.tmdb.org/t/p/w500/bQXAqRx2Fgc46uCVWgoPz5L5Dtr.jpg',
+    );
   });
 
   test('should validate MovieModel equatable', () {
@@ -26,9 +30,11 @@ void main() {
       id: 436270,
       title: 'Black Adam',
       posterImageUrl:
-          'https://image.tmdb.org/t/p/w300/kTQ3J8oTTKofAVLYnds2cHUz9KO.jpg',
+          'https://image.tmdb.org/t/p/w500/kTQ3J8oTTKofAVLYnds2cHUz9KO.jpg',
       averageRating: 7.5,
       overview: 'Dwayne Johnson as Black Adam',
+      bannerImageUrl:
+          'https://image.tmdb.org/t/p/w500/bQXAqRx2Fgc46uCVWgoPz5L5Dtr.jpg',
     );
 
     expect(movie, movie2);

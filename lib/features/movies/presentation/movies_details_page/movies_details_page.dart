@@ -26,7 +26,7 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
               padding: const EdgeInsets.all(8.0),
               child: Column(
                 children: [
-                  Image.network(widget.movie.posterImageUrl),
+                  Image.network(widget.movie.bannerImageUrl),
                   const SizedBox(
                     height: 10.0,
                   ),

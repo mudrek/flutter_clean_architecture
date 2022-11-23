@@ -6,9 +6,10 @@ class MoviesMapper {
     return Movie(
       id: movie.id,
       title: movie.title,
-      posterImageUrl: 'https://image.tmdb.org/t/p/w300${movie.posterImageUrl}',
+      posterImageUrl: 'https://image.tmdb.org/t/p/w500${movie.posterImageUrl}',
       averageRating: movie.averageRating,
       overview: movie.overview,
+      bannerImageUrl: 'https://image.tmdb.org/t/p/w500${movie.bannerImageUrl}',
     );
   }
 }
