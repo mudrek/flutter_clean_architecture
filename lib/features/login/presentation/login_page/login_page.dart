@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/constants/keys.dart';
 import '../../../../core/foundation/form/base_form.dart';
 import '../../../../core/foundation/injector/get.dart';
 import '../../../../core/foundation/states/view_state_builder_dialog.dart';
@@ -37,7 +38,6 @@ class _LoginPageState extends State<LoginPage> with BaseForm {
                 padding: const EdgeInsets.all(32),
                 child: Image.asset(
                   'assets/images/logo_nf.png',
-                  key: const Key('nf-logo-image'),
                   width: 120,
                   height: 120,
                 ),
@@ -46,7 +46,7 @@ class _LoginPageState extends State<LoginPage> with BaseForm {
                 height: 16,
               ),
               TextFormField(
-                key: const Key('textfield-login'),
+                key: const Key(keyTextFormFieldUsername),
                 controller: _loginController,
                 decoration: InputDecoration(
                   label: Text(I18n.strings.textUsernameFormFieldTitle),
@@ -57,7 +57,7 @@ class _LoginPageState extends State<LoginPage> with BaseForm {
                 height: 16,
               ),
               TextFormField(
-                key: const Key('textfield-password'),
+                key: const Key(keyTextFormFieldPassword),
                 controller: _passwordController,
                 obscureText: true,
                 decoration: InputDecoration(
@@ -77,7 +77,10 @@ class _LoginPageState extends State<LoginPage> with BaseForm {
                     WidgetsBinding.instance.addPostFrameCallback((_) {
                       showDialog(
                         context: context,
-                        builder: (context) => LoginAlertWidget(userInfo: value),
+                        builder: (context) => LoginAlertWidget(
+                          key: const Key(keyLoginAlert),
+                          userInfo: value,
+                        ),
                       );
                     });
 
@@ -86,7 +89,7 @@ class _LoginPageState extends State<LoginPage> with BaseForm {
 
                   final isLoading = state.loading;
                   return ButtonWidget(
-                    key: const Key('button-login'),
+                    key: const Key(keyButtonLogin),
                     text: I18n.strings.textButtonLogin,
                     onPressed: _onClickLogin,
                     showProgress: isLoading,
@@ -96,6 +99,7 @@ class _LoginPageState extends State<LoginPage> with BaseForm {
                   if (failure != null) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
+                        key: const Key(keyScaffolMessage),
                         content: Text(
                           failure.message,
                         ),

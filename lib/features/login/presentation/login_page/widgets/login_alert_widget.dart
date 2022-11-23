@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../core/constants/keys.dart';
 import '../../../../../core/i18n/i18n.dart';
 import '../../../../movies/presentation/movies_page/movies_page.dart';
 import '../../../domain/entities/user_info.dart';
@@ -34,6 +35,7 @@ class _LoginAlertWidgetState extends State<LoginAlertWidget> {
                 height: 16,
               ),
               ButtonWidget(
+                key: const Key(keyLoginAlertButton),
                 text: I18n.strings.textButtonLoginSuccess,
                 onPressed: _onClickPushMovies,
               ),

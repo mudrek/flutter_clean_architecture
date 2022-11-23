@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../core/constants/keys.dart';
+
 class ButtonWidget extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
@@ -28,6 +30,7 @@ class ButtonWidget extends StatelessWidget {
                   width: 24,
                   height: 24,
                   child: CircularProgressIndicator(
+                    key: Key(keyLoginCircularProgressIndicator),
                     valueColor: AlwaysStoppedAnimation<Color>(textColor),
                   ),
                 ),
