@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_clean_next/core/foundation/exception_handler/base_exception_handler.dart';
+import 'package:flutter_clean_next/features/login/data/datasources/login_datasource_interface.dart';
+import 'package:flutter_clean_next/features/login/data/handlers/login_exception_handler.dart';
 import 'package:flutter_clean_next/features/login/domain/repositories/login_repository_interface.dart';
 import 'package:flutter_clean_next/features/movies/data/datasources/movies_datasource_interface.dart';
 import 'package:flutter_clean_next/features/movies/data/handlers/movies_exception_handler.dart';
@@ -18,6 +20,8 @@ import 'package:mockito/annotations.dart';
     MoviesViewModel,
     LoginRepositoryInterface,
     MoviesExceptionHandler,
+    LoginExceptionHandler,
+    LoginDatasourceInterface,
     BaseExceptionHandler,
   ],
   customMocks: [
