@@ -43,8 +43,8 @@ void main() {
 
   test('Should return error when usecase fails', () async {
     // arrange
-    const message = 'Ocorreu um erro inesperado no servidor, tente novamente.';
-    mockFailure(const ServiceFailure(code: ''));
+    const message = 'Você está sem internet, tente novamente.';
+    mockFailure(const TimeoutFailure());
 
     // act
     await viewModel.fetch();
